@@ -1,0 +1,48 @@
+{
+  "name": "perfect-dom",
+  "version": "0.1.0",
+  "author": {
+    "name": "Linder Wang",
+    "email": "linder0209@126.com",
+    "url": "https://github.com/hopefuture"
+  },
+  "description": "This is a common function to parse DOM.",
+  "keywords": [
+    "DOM",
+    "perfect",
+    "function"
+  ],
+  "main": "lib/index.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-flow-comments": "^6.8.0",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^2.11.1",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-flow-vars": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-util": "^3.0.7",
+    "webpack": "^1.13.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enjoyfuture/perfect-dom.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enjoyfuture/perfect-dom/issues"
+  },
+  "homepage": "https://github.com/enjoyfuture/perfect-dom#readme"
+}
