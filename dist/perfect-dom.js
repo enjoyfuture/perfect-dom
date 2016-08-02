@@ -83,7 +83,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var _scrollbarWidth = __webpack_require__(3);
+	var _scrollbarWidth = __webpack_require__(4);
 
 	var _scrollbarWidth2 = _interopRequireDefault(_scrollbarWidth);
 
@@ -91,9 +91,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _checkBodyScrollbar2 = _interopRequireDefault(_checkBodyScrollbar);
 
-	var _zIndex = __webpack_require__(4);
+	var _zIndex = __webpack_require__(6);
 
 	var _zIndex2 = _interopRequireDefault(_zIndex);
+
+	var _offset = __webpack_require__(3);
+
+	var _offset2 = _interopRequireDefault(_offset);
+
+	var _style = __webpack_require__(5);
+
+	var _style2 = _interopRequireDefault(_style);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -103,13 +111,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	var prefectDom = {
 	  scrollbarWidth: _scrollbarWidth2.default,
 	  checkBodyScrollbar: _checkBodyScrollbar2.default,
-	  zIndex: _zIndex2.default
+	  zIndex: _zIndex2.default,
+	  offset: _offset2.default,
+	  style: _style2.default
 	};
 
 	module.exports = prefectDom;
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function (el) {
+	  var docElem = void 0,
+	      win = void 0,
+	      rect = void 0,
+	      doc = void 0;
+
+	  if (!el) {
+	    return;
+	  }
+
+	  // Support: IE <=11 only
+	  // Running getBoundingClientRect on a
+	  // disconnected node in IE throws an error
+	  if (!el.getClientRects().length) {
+	    return { top: 0, left: 0 };
+	  }
+
+	  rect = el.getBoundingClientRect();
+
+	  // Make sure element is not hidden (display: none)
+	  if (rect.width || rect.height) {
+	    doc = el.ownerDocument;
+	    win = getWindow(doc);
+	    docElem = doc.documentElement;
+
+	    return {
+	      top: rect.top + win.pageYOffset - docElem.clientTop,
+	      left: rect.left + win.pageXOffset - docElem.clientLeft
+	    };
+	  }
+	  return rect;
+	};
+
+	/**
+	 * Gets a window from an element
+	 */
+	function getWindow(elem) {
+	  return isWindow(elem) ? elem : elem.nodeType === 9 && elem.defaultView;
+	} /**
+	   * 返回元素 offset
+	   * 不支持隐藏的元素
+	   * 参考 jQuery 实现
+	   * https://github.com/jquery/jquery/blob/master/src/offset.js
+	   * @param el
+	   * @returns {*}
+	   */
+
+
+	function isWindow(elem) {
+	  return elem != null && elem === elem.window;
+	}
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -144,7 +216,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 /***/ },
-/* 4 */
+/* 5 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.getStyles = getStyles;
+	/**
+	 * getStyles
+	 * @param {type} element
+	 * @param {type} property
+	 * @returns {styles}
+	 */
+	function getStyles(element, property) {
+	  var styles = element.ownerDocument.defaultView.getComputedStyle(element, null);
+	  if (property) {
+	    return styles.getPropertyValue(property) || styles[property];
+	  }
+	  return styles;
+	}
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
