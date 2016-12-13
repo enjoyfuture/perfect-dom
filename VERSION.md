@@ -1,5 +1,7 @@
 # Perfect DOM 更新日志
 
+## version 0.1.2  新增一些 api(2016-12-13)
+
 ## version 0.1.1  增加 style 操作(2016-8-2)
 
 * 增加方法 getStyles 返回元素对应的 style 对象值，或某一属性值

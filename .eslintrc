@@ -220,11 +220,7 @@
     "prefer-template": 2,//建议使用模板符来替代引号，比如 var str = `Hello, ${name}!`;
     "require-yield": 2,//generator functions 应该有 yield
     //"template-curly-spacing": [2, "never"], //模板表达式中 {} 前后是否需要空格
-    "yield-star-spacing": [2, {"before": true, "after": false}], // yield * 号前后是否需要空格
-
-    // eslint-plugin-flow-vars
-    "flow-vars/define-flow-type": 2,
-    "flow-vars/use-flow-type": 2
+    "yield-star-spacing": [2, {"before": true, "after": false}] // yield * 号前后是否需要空格
   },
   "parser": "babel-eslint",//指定默认解析器
   "env": {
@@ -269,7 +265,7 @@
 
   ],
   "plugins": [//定义第三方插件
-    "flow-vars"
+
   ],
   "settings": {//设置
     "sharedData": "sharedName"

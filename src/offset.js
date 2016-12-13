@@ -1,3 +1,4 @@
+import {getWindow} from './core';
 /**
  * 返回元素 offset
  * 不支持隐藏的元素
@@ -34,15 +35,4 @@ export default function (el) {
     };
   }
   return rect;
-}
-
-/**
- * Gets a window from an element
- */
-function getWindow(elem) {
-  return isWindow(elem) ? elem : elem.nodeType === 9 && elem.defaultView;
-}
-
-function isWindow(elem) {
-  return elem != null && elem === elem.window;
 }

@@ -57,6 +57,14 @@ perfectDom.scrollbarWidth();
 gulp build
 ```
 
+## Docs
+
+* checkBodyScrollbar  判断 body 滚动条是否显示
+* scrollbarWidth 获取浏览器滚动条宽度
+* zIndex  获取当前元素 zIndex
+* offset  获取当前元素 offset
+* getStyles 返回元素对应的 style 对象值，或某一属性值
+
 ## Issue
 
 https://github.com/enjoyfuture/perfect-dom/issues
